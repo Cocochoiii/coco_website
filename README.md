@@ -6,57 +6,31 @@ npm install
 npm run dev
 ```
 
-Export Rive files → place in `/public/`:
-- `piano.riv` — Home page hero
-- `warhol.riv` — Projects page
-- `experience.riv` — Experience page eye
-- `about_me.riv` — About page character
+Place Rive files in `/public/`:
+`piano.riv`, `warhol.riv`, `experience.riv`, `about_me.riv`
+Optional: `music.mp3`
 
-Optional: `music.mp3` → `/public/music.mp3`
+## Font Fix (Vercel)
+Fonts are loaded via `<link>` tags in `index.html` — NOT via CSS `@import`.
+This ensures reliable loading on Vercel, Netlify, and all CDN-based hosts.
 
-## Rive Config
-- Piano: Artboard `"Bye Quincy"`, State Machine `"State Machine 1"`, Inputs: `roll` (bool)
-- Experience: Artboard `"AO Eyes"`, State Machine `"Eyes"`
-- Projects: Artboard `"New Artboard"`, Animation `"Animation 1"`
-- About: State Machine `"State Machine 1"`
+## Mobile Responsive
+All pages adapt to mobile viewports (≤900px):
+- **Home**: Scaled piano, repositioned name/typewriter, touch-friendly nav buttons
+- **Experience**: Vertical scrollable card list replaces 3×3 grid
+- **Projects**: 2-column compact grid replaces side-by-side layout
+- **About**: Stacked panels, single-column editorial, smaller Rive
+- **Nav overlay**: Smaller labels, adjusted spacing
 
 ## Architecture
-
 ```
 src/
-  constants/
-    theme.js          — Color palettes (EYE, PAL, BG), design tokens
-    data.js           — All data arrays (experiences, projects, skills, etc.)
-  hooks/
-    useTypewriter.js  — Typing/deleting animation loop
-    useParallax.js    — Mouse-follow GSAP parallax
-    useRiveCanvas.js  — Generic Rive loader (DPR, resize, cleanup)
-    useScrollReveal.js— GSAP scroll-triggered fade-in
-  utils/
-    audio.js          — Web Audio piano synth + Howler bg music
+  constants/     — theme.js, data.js
+  hooks/         — useTypewriter, useParallax, useRiveCanvas, useScrollReveal, useIsMobile
+  utils/         — audio.js
   components/
-    shared/
-      AnimatedNumber.jsx — GSAP number counter
-      Particles.jsx      — Canvas floating particles
-    cards/
-      CardInner.jsx    — Experience card inner content layer
-      ExpCard.jsx      — Experience card with 3D tilt + clip-path hover
-      CardContent.jsx  — Project card inner content layer
-      ArtCard.jsx      — Project card with 3D tilt + clip-path hover
-    HomePage.jsx
-    ExperiencePage.jsx
-    ProjectsPage.jsx
-    AboutPage.jsx
-    NavOverlay.jsx
-    PianoCanvas.jsx
-  App.jsx
-  main.jsx
-  styles.css
+    shared/      — AnimatedNumber, Particles
+    cards/       — CardInner, ExpCard, CardContent, ArtCard
+    HomePage, ExperiencePage, ProjectsPage, AboutPage, NavOverlay, PianoCanvas
+  App.jsx, main.jsx, styles.css
 ```
-
-## Design Principles
-- Fixed-viewport pages with GSAP strip transitions
-- Rive animations as page hero elements
-- Two-layer card system: base + clip-path hover for always-readable text
-- Film grain overlay with separate animation refs per layer
-- Mouse parallax on Home (piano) and About (character panels)
