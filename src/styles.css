@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root { --rose: #E37B88; --cream: #faf5f0; --grey: #848283; --dark: #1a1a1a; --gold: #c9a96e; --warm: #f0e8dc; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #root { width: 100%; height: 100%; font-family: 'DM Sans', sans-serif; overflow: hidden; }
+::selection { background: var(--rose); color: white; }
+
+/* Smooth all transitions globally */
+*, *::before, *::after { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/* Pill buttons */
+.pill-btn {
+  background: white; color: var(--dark);
+  padding: 13px 30px; border-radius: 40px;
+  font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  border: 2.5px solid var(--dark); cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25,0,0,1);
+  pointer-events: auto;
+}
+.pill-btn:hover { background: var(--dark); color: white; transform: translateY(-4px) scale(1.06); box-shadow: 0 12px 40px rgba(0,0,0,0.2); }
+
+/* Hamburger */
+.ham-btn {
+  position: fixed; top: 24px; right: 24px;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: white; border: none; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  pointer-events: auto; transition: all 0.35s cubic-bezier(0.25,0,0,1);
+}
+.ham-btn:hover { transform: scale(1.08); }
+.ham-btn:not(.open):hover .bar:first-child { transform: translateX(-3px); }
+.ham-btn:not(.open):hover .bar:nth-child(2) { transform: translateX(3px); }
+.ham-btn:not(.open):hover .bar:last-child { transform: translateX(-2px); }
+.ham-btn.open { background: transparent; box-shadow: none; gap: 0; }
+.ham-btn .bar { width: 20px; height: 2.5px; background: var(--dark); border-radius: 2px; transition: all 0.4s cubic-bezier(0.25,0,0,1); }
+.ham-btn.open .bar { background: white; position: absolute; }
+.ham-btn.open .bar:first-child { transform: rotate(45deg); }
+.ham-btn.open .bar:nth-child(2) { opacity: 0; }
+.ham-btn.open .bar:last-child { transform: rotate(-45deg); }
+
+/* Back button */
+.page-back {
+  position: fixed; top: 28px; left: 36px; z-index: 100;
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15);
+  color: white; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(10px); transition: all 0.35s cubic-bezier(0.25,0,0,1);
+}
+.page-back:hover { background: rgba(255,255,255,0.18); transform: scale(1.1) translateX(-2px); }
+
+/* Project cards */
+.p-card {
+  border-radius: 14px; overflow: hidden; position: relative; cursor: pointer;
+  transition: transform 0.5s cubic-bezier(0.2,0,0,1), box-shadow 0.5s;
+}
+.p-card:hover { transform: translateY(-5px) scale(1.015); box-shadow: 0 16px 40px rgba(0,0,0,0.25); }
+.p-card .vis { transition: transform 0.6s cubic-bezier(0.2,0,0,1); }
+.p-card:hover .vis { transform: scale(1.04); }
+.p-card .over { position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,0.55) 100%); border-radius: 14px; }
+.p-card .info { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 22px; }
+.p-card .pname { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: white; }
+.p-card .pmeta { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+.p-card .arrow {
+  position: absolute; top: 14px; right: 14px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(8px);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 14px;
+  opacity: 0; transform: translateY(6px); transition: all 0.4s;
+}
+.p-card:hover .arrow { opacity: 1; transform: translateY(0); }
+
+/* Transition wrapper */
+.trans-wrap { position: fixed; inset: 0; z-index: 500; pointer-events: none; display: flex; align-items: center; justify-content: center; }
+
+@media (max-width: 900px) {
+  .pill-btn { padding: 10px 20px; font-size: 11px; }
+}
