@@ -178,13 +178,13 @@ export default function AboutPage({ go }) {
             width: 'clamp(280px, 28vw, 420px)', zIndex: 10, opacity: 0,
           }}>
             <p style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: 17, fontWeight: 700,
+              fontFamily: "'DM Sans', sans-serif", fontSize: 30, fontWeight: 700,
               letterSpacing: 6, textTransform: 'uppercase', color: EYE.rose, marginBottom: 20,
             }}>About Me</p>
 
             <h2 style={{
               fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(80px, 9vw, 130px)',
+              fontSize: 'clamp(180px, 9vw, 130px)',
               fontWeight: 900, color: EYE.shadow,
               marginBottom: 24, lineHeight: 0.92, letterSpacing: -5,
             }}>
@@ -193,7 +193,7 @@ export default function AboutPage({ go }) {
 
             <p style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: 'clamp(22px, 1.8vw, 30px)', lineHeight: 1.55, color: '#444', fontWeight: 400,
+              fontSize: 'clamp(25px, 1.8vw, 30px)', lineHeight: 1.55, color: '#444', fontWeight: 400,
             }}>
               Engineer who thinks like a designer.
               I ship products that people{' '}
@@ -204,12 +204,12 @@ export default function AboutPage({ go }) {
           {/* RIGHT panel — near the girl's right hand */}
           <div ref={rightRef} className="ab-right" style={{
             position: 'absolute', left: '70%',
-            top: '44%', transform: 'translateY(-50%)',
+            top: '50%', transform: 'translateY(-50%)',
             width: 'clamp(280px, 28vw, 420px)', zIndex: 10, opacity: 0,
           }}>
             <p style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: 'clamp(22px, 1.8vw, 30px)', lineHeight: 1.6, color: '#444', marginBottom: 32, fontWeight: 400,
+              fontSize: 'clamp(25px, 1.8vw, 30px)', lineHeight: 1.6, color: '#444', marginBottom: 32, fontWeight: 400,
             }}>
               Northeastern CS grad student.
               Previously at{' '}

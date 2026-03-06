@@ -313,8 +313,8 @@ export default function ProjectsPage({ go }) {
         <div className="wart" style={{ width: '40%', flexShrink: 0, overflow: 'hidden', opacity: 0, position: 'relative', zIndex: 1 }}>
           <canvas ref={canvasRef} style={{ display: 'block' }} />
           <div style={{ position: 'absolute', bottom: 40, left: 28, right: 28, zIndex: 5 }}>
-            <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 12, color: '#c9a96e', letterSpacing: 4, textTransform: 'uppercase', marginBottom: 8 }}>Selected</p>
-            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 800, color: '#f0e8dc', lineHeight: 1.05, letterSpacing: -2 }}>Projects</h2>
+            <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: 'italic', fontSize: 20, color: '#c9a96e', letterSpacing: 4, textTransform: 'uppercase', marginBottom: 8 }}>Selected</p>
+            <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(48px, 4vw, 60px)', fontWeight: 800, color: '#f0e8dc', lineHeight: 1.05, letterSpacing: -2 }}>Projects</h2>
             <div style={{ width: 40, height: 2, background: '#c9a96e', marginTop: 14, borderRadius: 2 }} />
           </div>
         </div>
